@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Record Details</title>
+</head>
+<body>
+<h1>Record Details</h1>
+
+<h2>Medical History</h2>
+<p th:text="${medicalHistory.medicalHistory}">Medical history details</p>
+
+<h2>First Visit Date</h2>
+<p th:text="${medicalHistory.firstVisitDate}">Date</p>
+
+<h2>Pet Information</h2>
+<p><strong>Name:</strong> <span th:text="${pet.name}">Pet Name</span></p>
+<p><strong>Breed:</strong> <span th:text="${pet.breed}">Breed</span></p>
+
+<h2>Owner(s)</h2>
+<ul>
+  <li th:each="owner : ${owner}" th:text="${owner.firstName + ' ' + owner.lastName}">Owner Name</li>
+</ul>
+
+<h2>Veterinarian</h2>
+<p th:text="${veterinarian.name}">Veterinarian Name</p>
+</body>
+</html>

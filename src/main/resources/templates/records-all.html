@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>All Records</title>
+</head>
+<body>
+<h1>All Records</h1>
+
+<table border="1">
+  <thead>
+  <tr>
+    <th>Medical History</th>
+    <th>First Visit Date</th>
+    <th>Pet Name</th>
+    <th>Pet Breed</th>
+    <th>Veterinarian</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="history : ${medicalHistories}">
+    <td th:text="${history.medicalHistory}">Medical History</td>
+    <td th:text="${history.firstVisitDate}">First Visit Date</td>
+    <td th:text="${history.pet.name}">Pet Name</td>
+    <td th:text="${history.pet.breed}">Pet Breed</td>
+    <td th:text="${history.pet.veterinarian.name}">Veterinarian</td>
+  </tr>
+  </tbody>
+</table>
+
+<a href="/records/add">Add New Record</a>
+</body>
+</html>

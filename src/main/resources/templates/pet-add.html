@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Add Pet</title>
+</head>
+<body>
+<h1>Add New Pet</h1>
+<form th:action="@{/records/pet/add}" method="post">
+    <div>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+    </div>
+    <div>
+        <label for="breed">Breed:</label>
+        <input type="text" id="breed" name="breed" required>
+    </div>
+    <div>
+        <button type="submit">Add Pet</button>
+    </div>
+</form>
+</body>
+</html>

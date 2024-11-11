@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Add Veterinarian</title>
+</head>
+<body>
+<h1>Add New Veterinarian</h1>
+<form th:action="@{/records/veterinarian/add}" method="post">
+    <div>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+    </div>
+    <div>
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" required>
+    </div>
+    <div>
+        <label for="phone">Phone:</label>
+        <input type="text" id="phone" name="phone" required>
+    </div>
+    <div>
+        <button type="submit">Add Veterinarian</button>
+    </div>
+</form>
+</body>
+</html>
