@@ -15,7 +15,6 @@ import ru.ssau.springlab4.service.VeterinarianService;
 
 import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 @Controller
 @RequestMapping("/records")
@@ -44,7 +43,7 @@ public class VetController {
 
         model.addAttribute("medicalHistories", medicalHistories);
 
-        return "records-all"; // имя HTML-шаблона для отображения всех записей
+        return "records-all";
     }
 
     // 2. Отображение конкретной записи
@@ -53,14 +52,13 @@ public class VetController {
         MedicalHistory medicalHistory = medicalHistoryService.getMedicalHistoryById(id);
         model.addAttribute("medicalHistory", medicalHistory);
 
-        // Также можете добавить данные о связанных сущностях
         if (medicalHistory != null) {
             model.addAttribute("pet", medicalHistory.getPet());
             model.addAttribute("owner", medicalHistory.getPet().getOwners()); // Предполагается, что у каждого питомца есть владельцы
             model.addAttribute("veterinarian", medicalHistory.getPet().getVeterinarian());
         }
 
-        return "record-detail"; // имя HTML-шаблона для отображения конкретной записи
+        return "record-detail";
     }
 
     // 3. Добавление новой записи
@@ -72,7 +70,7 @@ public class VetController {
         model.addAttribute("pets", pets);
         model.addAttribute("veterinarians", veterinarians);
         model.addAttribute("owners", owners);
-        return "record-add"; // имя HTML-шаблона для формы добавления записи
+        return "record-add";
     }
 
     @PostMapping("/add")
@@ -107,7 +105,7 @@ public class VetController {
             medicalHistoryService.addMedicalHistory(newRecord);
         }
 
-        return "redirect:/records/all"; // Перенаправление на страницу со всеми записями
+        return "redirect:/records/all";
     }
 
     // Добавление нового питомца
